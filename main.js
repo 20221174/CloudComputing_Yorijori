@@ -143,6 +143,9 @@ app.use("/createfundingPage", createFundingRouter);
 // joinFundingRouter 접근
 app.use("/joinfundingPage", joinFundingRouter);
 
+// Express 전역 변수를 설정하여 모든 EJS 템플릿에서 접근 가능하도록 함
+app.locals.domainName = process.env.DOMAIN_NAME;
+
 // 서버 실행
 app.set("port", 3000);
 app.listen(app.get("port"), "0.0.0.0", () => {
